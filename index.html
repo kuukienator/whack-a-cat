@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Whack-A-Cat!</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Audiowide|Roboto+Mono&display=swap"
+            rel="stylesheet"
+        />
+        <link href="./styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="overlayScreen startScreen">
+            <div class="title">Whack-A-Cat!</div>
+            <button class="playButton inverted">Play Game</button>
+            <button class="playHardButton inverted">Play Game - Extreme</button>
+        </div>
+
+        <div class="overlayScreen endScreen">
+            <div class="title">Round complete</div>
+            <div class="results">
+                <p class="newHighScoreText">New High Score!</p>
+                <div>
+                    <span>Score: </span><span class="finalScoreText">9000</span>
+                </div>
+                <div>
+                    <span>High Score: </span
+                    ><span class="finalHighScoreText">15000</span>
+                </div>
+            </div>
+            <button class="playAgainButton inverted">Play Again</button>
+            <button class="playHardAgainButton inverted">
+                Play Again - Extreme
+            </button>
+        </div>
+
+        <div class="container">
+            <div class="header">Whack-A-Cat!</div>
+            <div class="playfield">
+                <div class="row row-1">
+                    <div class="tile">
+                        <div class="boop" data-position="1">+1</div>
+                        <img
+                            class="cat"
+                            src="./graphics/cat_export_2.svg"
+                            alt="cat"
+                            data-position="1"
+                        />
+                    </div>
+                    <div class="tile">
+                        <div class="boop" data-position="2">+1</div>
+                        <img
+                            class="cat"
+                            src="./graphics/cat_export_2.svg"
+                            alt="cat"
+                            data-position="2"
+                        />
+                    </div>
+                    <div class="tile">
+                        <div class="boop" data-position="3">+1</div>
+                        <img
+                            class="cat"
+                            src="./graphics/cat_export_2.svg"
+                            alt="cat"
+                            data-position="3"
+                        />
+                    </div>
+                </div>
+                <div class="row row-2">
+                    <div class="tile">
+                        <div class="boop" data-position="4">+1</div>
+                        <img
+                            class="cat"
+                            src="./graphics/cat_export_2.svg"
+                            alt="cat"
+                            data-position="4"
+                        />
+                    </div>
+                    <div class="tile">
+                        <div class="boop" data-position="5">+1</div>
+                        <img
+                            class="cat"
+                            src="./graphics/cat_export_2.svg"
+                            alt="cat"
+                            data-position="5"
+                        />
+                    </div>
+                    <div class="tile">
+                        <div class="boop" data-position="6">+1</div>
+                        <img
+                            class="cat"
+                            src="./graphics/cat_export_2.svg"
+                            alt="cat"
+                            data-position="6"
+                        />
+                    </div>
+                </div>
+                <div class="row row-3">
+                    <div class="tile">
+                        <div class="boop" data-position="7">+1</div>
+                        <img
+                            class="cat"
+                            src="./graphics/cat_export_2.svg"
+                            alt="cat"
+                            data-position="7"
+                        />
+                    </div>
+                    <div class="tile">
+                        <div class="boop" data-position="8">+1</div>
+                        <img
+                            class="cat"
+                            src="./graphics/cat_export_2.svg"
+                            alt="cat"
+                            data-position="8"
+                        />
+                    </div>
+                    <div class="tile">
+                        <div class="boop" data-position="9">+1</div>
+                        <img
+                            class="cat"
+                            src="./graphics/cat_export_2.svg"
+                            alt="cat"
+                            data-position="9"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="output">
+                <div class="highScore">
+                    <span>High Score: </span
+                    ><span class="highScoreText">0</span>
+                </div>
+                <div class="score">
+                    <span>Score:</span><span class="scoreText">0</span>
+                </div>
+                <div class="classtime">
+                    <span>Remaining Time:</span>
+                    <span class="remaingTimeText">30s</span>
+                </div>
+            </div>
+        </div>
+
+        <script src="./app.js"></script>
+    </body>
+</html>
