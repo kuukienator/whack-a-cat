@@ -79,8 +79,10 @@ body {
 
 .tile {
     width: 32vw;
-    background: #f0f0f0;
     height: 32vw;
+    max-width: 250px;
+    max-height: 250px;
+    background: #f0f0f0;
     border-radius: 20px;
     display: flex;
     align-items: flex-end;
@@ -104,6 +106,7 @@ body {
 
 .cat.popUp {
     animation: popUp 2.5s;
+    cursor: pointer;
 }
 
 .cat.popDown {
@@ -245,4 +248,28 @@ button {
 .endGame {
     transform: translateY(0);
     transition: transform 300ms;
+}
+
+@media (min-width: 800px) {
+    .tile {
+        max-width: 200px;
+        max-height: 200px;
+    }
+    .row {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1280px) {
+    .tile {
+        max-width: 250px;
+        max-height: 250px;
+    }
+    .playfieldContainer {
+        display: flex;
+        justify-content: center;
+    }
+    .output {
+        max-width: 25vw;
+    }
 }
