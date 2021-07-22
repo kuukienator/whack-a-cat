@@ -1,3 +1,5 @@
+let AudioManager = null;
+
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -43,6 +45,7 @@ const playButton = document.querySelector('.playButton');
 const playHardButton = document.querySelector('.playHardButton');
 const playAgainButton = document.querySelector('.playAgainButton');
 const playHardAgainButton = document.querySelector('.playHardAgainButton');
+const toggleSoundButton = document.querySelector('.toggleSoundButton');
 
 let activeCatPositions = [];
 let score = 0;
@@ -92,6 +95,30 @@ const resetGame = () => {
     playButton.classList.add('hidden');
 };
 
+const createAudioManager = () => {
+    let isSoundEnabled = true;
+    let sources = [];
+    const audio = new Audio('/audio/528193__fthgurdy__cat-meow-2.wav');
+
+    const getAvailable = () => sources.find((s) => !!s.paused);
+
+    const getOrCreateSource = () => {
+        const available = getAvailable();
+        if (available) {
+            return available;
+        } else {
+            const newSource = audio.cloneNode();
+            sources = [...sources, newSource];
+            return newSource;
+        }
+    };
+    return {
+        play: () => isSoundEnabled && getOrCreateSource().play(),
+        toggleSound: () => (isSoundEnabled = !isSoundEnabled),
+        isSoundEnabled: () => isSoundEnabled,
+    };
+};
+
 boops.forEach((boop) => {
     boop.addEventListener('animationend', (e) =>
         e.target.classList.remove('popUp')
@@ -110,6 +137,7 @@ cats.forEach((cat) => {
         console.log('clicked on cat', position);
         if (isRunning) {
             score = updateScore(score);
+            AudioManager.play();
             updateUI();
         }
     });
@@ -126,6 +154,8 @@ cats.forEach((cat) => {
         }
     });
 });
+
+AudioManager = createAudioManager();
 
 playButton.addEventListener('click', (e) => {
     startScreen.classList.add('startGame');
@@ -147,6 +177,13 @@ playHardAgainButton.addEventListener('click', (e) => {
     endScreen.classList.add('startGame');
     endScreen.classList.remove('endGame');
     startIntro(100);
+});
+
+toggleSoundButton.addEventListener('click', (e) => {
+    AudioManager.toggleSound();
+    toggleSoundButton.innerHTML = `Sound: ${
+        AudioManager.isSoundEnabled() ? 'ON' : 'OFF'
+    }`;
 });
 
 const showEndScreen = (currentScore, currentHighScore, hasNewHighScore) => {
