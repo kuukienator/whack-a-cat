@@ -98,7 +98,7 @@ const resetGame = () => {
 const createAudioManager = () => {
     let isSoundEnabled = true;
     let sources = [];
-    const audio = new Audio('/audio/528193__fthgurdy__cat-meow-2.wav');
+    const audio = new Audio('./audio/528193__fthgurdy__cat-meow-2.wav');
 
     const getAvailable = () => sources.find((s) => !!s.paused);
 
